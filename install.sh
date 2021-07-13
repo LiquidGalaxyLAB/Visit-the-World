@@ -24,5 +24,6 @@ echo "Editing Drivers.Ini"
 
 sudo rm -f /opt/google/earth/pro/drivers.ini
 sudo mv drivers.ini /opt/google/earth/pro
+sudo rm -f google-earth-pro-stable_current_amd64.deb
 
-#python main.py
+
