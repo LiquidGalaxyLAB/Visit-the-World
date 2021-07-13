@@ -21,7 +21,31 @@ The project is designed for installation on the LattePanda board, but it can als
 * Shell
 * Python
 
+## Requirements
+
+- Ubuntu 18.04.5
+
 ## How to install and use?
+
+Install git on your computer using:
+
+`sudo apt install git`
+
+Clone the project repository using:
+
+`git clone https://github.com/LiquidGalaxyLAB/Visit-the-World.git`
+
+Enter the repository directory using:
+
+`cd Visit-the-World`
+
+Run the install script using the commands:
+
+`chmod +x install.sh`
+
+`./install.sh`
+
+Accept all requests with `y` + `Enter`
 
 
 ## Complete documentation
