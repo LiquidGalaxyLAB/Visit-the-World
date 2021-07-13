@@ -47,6 +47,14 @@ Run the install script using the commands:
 
 Accept all requests with `y` + `Enter`
 
+After installing all the dependencies it is necessary to start Googl Earth manually, close the first "startup" screen, hide the sidebar and top bar.
+
+After installing all dependencies it is necessary to start Googl Earth manually, close the first "startup" screen, hide the sidebar and top bar.
+Then you need to initialize the voice recognition script using the command:
+
+`python main.py`
+
+Available voice commands are listed [here](https://docs.google.com/document/d/1CS8cuFqwNtNBiMWLslTGgVLVpoWNE1gggdW_G2cdj-k/edit?usp=sharing)
 
 ## Complete documentation
 ...
