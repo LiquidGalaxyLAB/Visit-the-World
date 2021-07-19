@@ -21,8 +21,40 @@ The project is designed for installation on the LattePanda board, but it can als
 * Shell
 * Python
 
+## Requirements
+
+- Ubuntu 18.04.5
+
 ## How to install and use?
 
+Install git on your computer using:
+
+`sudo apt install git`
+
+Clone the project repository using:
+
+`git clone https://github.com/LiquidGalaxyLAB/Visit-the-World.git`
+
+Enter the repository directory using:
+
+`cd Visit-the-World`
+
+Run the install script using the commands:
+
+`chmod +x install.sh`
+
+`./install.sh`
+
+Accept all requests with `y` + `Enter`
+
+After installing all the dependencies it is necessary to start Googl Earth manually, close the first "startup" screen, hide the sidebar and top bar.
+
+After installing all dependencies it is necessary to start Googl Earth manually, close the first "startup" screen, hide the sidebar and top bar.
+Then you need to initialize the voice recognition script using the command:
+
+`python main.py`
+
+Available voice commands are listed [here](https://docs.google.com/document/d/1CS8cuFqwNtNBiMWLslTGgVLVpoWNE1gggdW_G2cdj-k/edit?usp=sharing)
 
 ## Complete documentation
 ...
