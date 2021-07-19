@@ -48,6 +48,8 @@ echo "Visit the World installation completed! :-)"
 echo "Press ENTER key to reboot now"
 read
 google-earth-pro &
+sleep 10
+
 reboot
 
 exit 0
