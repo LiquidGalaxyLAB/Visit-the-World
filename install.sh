@@ -13,7 +13,7 @@ https://github.com/LiquidGalaxyLAB/Visit-the-World
 EOM
 
 echo "Installing Dependencies..."
-sudo apt net-tools
+sudo apt install net-tools
 sudo apt install portaudio19-dev python-all-dev
 sudo apt install python-pip
 sudo apt install gdebi
@@ -40,16 +40,17 @@ sudo rm -f /opt/google/earth/pro/drivers.ini
 sudo mv drivers.ini /opt/google/earth/pro
 sudo rm -f google-earth-pro-stable_current_amd64.deb
 
-echo "Editing I3 Config..."
-sudo rm -f /home/panda/.config/i3/config
-sudo mv config /home/panda/.config/i3/config
 
 chmod 755 GoogleEarthStart.sh
+chmod 755 i3config.sh
 
 echo "Visit the World installation completed! :-)"
 echo "Press ENTER key to reboot now"
 read
+google-earth-pro
 reboot
 
 exit 0
+
+#gnome-session-quit --force
 
