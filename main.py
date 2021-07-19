@@ -190,9 +190,6 @@ while True:
         # turn of the sistem
         playsound("Sounds/TurnOff.mp3")
         exit()
-    elif("fullscreen" in p) or ("full screen" in p):
-	keyb.press(Key.f11)
-	keyb.release(Key.f11)
     else:
         print(p)
         Position_Controller(p)
