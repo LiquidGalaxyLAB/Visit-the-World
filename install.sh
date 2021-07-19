@@ -47,7 +47,7 @@ chmod 755 i3config.sh
 echo "Visit the World installation completed! :-)"
 echo "Press ENTER key to reboot now"
 read
-google-earth-pro
+google-earth-pro &
 reboot
 
 exit 0

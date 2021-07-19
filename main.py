@@ -19,14 +19,14 @@ controllerB = True
 if controller == True:
 
     tts = gTTS("Welcome to visit the world!", lang=lang)
-    tts.save('Sounds/Welcome.mp3')
-    playsound('Sounds/Welcome.mp3')
-    os.remove('Sounds/Welcome.mp3')
+    tts.save('Visit-the-World/Sounds/Welcome.mp3')
+    playsound('Visit-the-World/Sounds/Welcome.mp3')
+    os.remove('Visit-the-World/Sounds/Welcome.mp3')
     sleep(0.2)
     tts2 = gTTS("Enjoy all the functions of this device to discover every corner of the world!", lang=lang)
-    tts2.save('Sounds/Enjoy.mp3')
-    playsound('Sounds/Enjoy.mp3')
-    os.remove('Sounds/Enjoy.mp3')
+    tts2.save('Visit-the-World/Sounds/Enjoy.mp3')
+    playsound('Visit-the-World/Sounds/Enjoy.mp3')
+    os.remove('Visit-the-World/Sounds/Enjoy.mp3')
 
     controller = False
 
@@ -35,7 +35,7 @@ def VoiceCommands():
     with sr.Microphone() as source:
         mic.adjust_for_ambient_noise(source, duration=1)
         if controllerB == True:
-            playsound("Sounds/MenuSound.mp3")
+            playsound("Visit-the-World/Sounds/MenuSound.mp3")
 
         print("Start Speaking!")
         audio = mic.listen(source)
@@ -121,7 +121,7 @@ while True:
         controllerB = False
     elif ("hello world" in p) or ("hello words" in p):
         print("Hello welcome!")
-        playsound("Sounds/HelloWord.mp3")
+        playsound("Visit-the-World/Sounds/HelloWord.mp3")
         controllerB = True
         #turn on the green/blue light
 
@@ -146,15 +146,15 @@ while True:
                 f.close()
 
                 goingTo = gTTS("going to"+p, lang=lang)
-                goingTo.save('Sounds/goingTo.mp3')
-                playsound('Sounds/goingTo.mp3')
-                os.remove('Sounds/goingTo.mp3')
+                goingTo.save('Visit-the-World/Sounds/goingTo.mp3')
+                playsound('Visit-the-World/Sounds/goingTo.mp3')
+                os.remove('Visit-the-World/Sounds/goingTo.mp3')
 
         controllerB = True
 
     elif ("change planet" in p) or ("planet change" in p) or ("planets" in p):
         print("Ready to change the planet!")
-        playsound("Sounds/MenuSound.mp3")
+        playsound("Visit-the-World/Sounds/MenuSound.mp3")
 
         while p != "return to earth":
             p = VoiceCommands()
@@ -167,9 +167,9 @@ while True:
                 f.close()
 
                 changeTo = gTTS("change planet to earth", lang=lang)
-                changeTo.save('Sounds/changeTo.mp3')
-                playsound('Sounds/changeTo.mp3')
-                os.remove('Sounds/changeTo.mp3')
+                changeTo.save('Visit-the-World/Sounds/changeTo.mp3')
+                playsound('Visit-the-World/Sounds/changeTo.mp3')
+                os.remove('Visit-the-World/Sounds/changeTo.mp3')
 
                 break
             elif (p == "mars") or (p == "moon"):
@@ -180,15 +180,15 @@ while True:
                 f.close()
 
                 changeTo = gTTS("change planet to" + p, lang=lang)
-                changeTo.save('Sounds/changeTo.mp3')
-                playsound('Sounds/changeTo.mp3')
-                os.remove('Sounds/changeTo.mp3')
+                changeTo.save('Visit-the-World/Sounds/changeTo.mp3')
+                playsound('Visit-the-World/Sounds/changeTo.mp3')
+                os.remove('Visit-the-World/Sounds/changeTo.mp3')
 
         controllerB = True
 
     elif ("goodbye" in p) or ("bye-bye" in p) or ("turn of" in p):
         # turn of the sistem
-        playsound("Sounds/TurnOff.mp3")
+        playsound("Visit-the-World/Sounds/TurnOff.mp3")
         exit()
     else:
         print(p)
