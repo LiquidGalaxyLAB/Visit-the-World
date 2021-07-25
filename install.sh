@@ -43,6 +43,7 @@ sudo rm -f google-earth-pro-stable_current_amd64.deb
 
 chmod 755 GoogleEarthStart.sh
 chmod 755 i3config.sh
+chmod o+rw /dev/ttyACM0
 
 echo "Visit the World installation completed! :-)"
 echo "Press ENTER key to reboot now"
