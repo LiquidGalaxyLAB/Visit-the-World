@@ -12,6 +12,34 @@ https://github.com/LiquidGalaxyLAB/Visit-the-World
 -------------------------------------------------------------
 EOM
 
+# Parameters
+INSTALLATION_MODE="1"
+
+read -p "Installation Mode (1 == LattePanda) (2 == regular PC): " INSTALLATION_MODE
+
+
+if [ $INSTALLATION_MODE == "1" ]; then
+    echo ""
+    echo "YOU CHOSE OPTION $INSTALLATION_MODE, INSTALL ON LATTEPANDA BOARD"
+    echo ""
+    read -p "Press any key to continue or Ctrl+C to stop"
+    echo "1" >ModeConfig.txt
+
+elif [ $INSTALLATION_MODE == "2" ]; then
+    echo ""
+    echo "YOU CHOSE OPTION $INSTALLATION_MODE, INSTALL ON A REGULAR PC"
+    echo ""
+    echo "2" >ModeConfig.txt
+    read -p "n Press any key to continue or Ctrl+C to stop"
+fi
+
+read -p "Parar teste" #apagar
+
+echo "Checking for system updates..."
+sudo apt update
+echo "Checking for system upgrades..."
+sudo apt upgrade -f
+
 echo "Installing Dependencies..."
 sudo apt install net-tools
 sudo apt install portaudio19-dev python-all-dev
@@ -27,6 +55,7 @@ pip install pynput
 pip install PyAudio
 pip install unidecode
 pip install geopy
+pip install paramiko
 
 echo "Screen Dimming Setting"
 gsettings set org.gnome.desktop.session idle-delay 0
@@ -37,13 +66,18 @@ sudo gdebi google-earth-pro-stable_current_amd64.deb
 
 echo "Editing Drivers.Ini..."
 sudo rm -f /opt/google/earth/pro/drivers.ini
-sudo cp drivers.ini /opt/google/earth/pro
-sudo rm -f google-earth-pro-stable_current_amd64.deb
+sudo cp ConfigFiles/drivers.ini /opt/google/earth/pro
+sudo rm -f google-earth-pro-stable_current_amd64.deb #Removing google-earth.deb
 
 
 chmod 755 GoogleEarthStart.sh
 chmod 755 i3config.sh
-chmod o+rw /dev/ttyACM0
+
+# Only for installations on the LattePanda board
+if [ $INSTALLATION_MODE == "1" ]; then
+    chmod o+rw /dev/ttyACM0 
+fi
+
 
 echo "Visit the World installation completed! :-)"
 echo "Press ENTER key to reboot now"
