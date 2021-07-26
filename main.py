@@ -1,3 +1,6 @@
+#!/usr/bin/python
+
+#Importing libraries####################################################
 import os
 from geopy.geocoders import Nominatim
 from unidecode import unidecode
@@ -13,9 +16,20 @@ lang = "en"
 keyb = KeyboardController()
 controller = True
 controllerB = True
-#######################################################################
+ModeControl = ""
 
+#Installation Mode Verification########################################
+file = open("Visit-the-World/ModeConfig.txt","r")
+ModeControl = file.read()
+file.close()
 
+if "1" in ModeControl:
+   print("Controle 1")
+if "2" in ModeControl:
+   print("Controle 2")
+   exit
+
+#Welcome, first run ##################################################
 if controller == True:
 
     tts = gTTS("Welcome to visit the world!", lang=lang)
@@ -30,6 +44,7 @@ if controller == True:
 
     controller = False
 
+#Voice recognition function###########################################
 def VoiceCommands():
     mic = sr.Recognizer()
     with sr.Microphone() as source:
@@ -59,6 +74,7 @@ def VoiceCommands():
         print("Impossible to make the call")
         return " "
 
+#Camera Move Function################################################
 def Position_Controller(dataRec):
     controllerB = True
     data = dataRec
@@ -113,6 +129,7 @@ def Position_Controller(dataRec):
         keyb.release(Key.page_down)
         print('Stop!')
 
+#Control loop#######################################################
 while True:
 
     p = VoiceCommands()
