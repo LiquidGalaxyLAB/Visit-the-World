@@ -52,26 +52,26 @@ def VoiceCommands():
         if controllerB == True:
             playsound("Visit-the-World/Sounds/MenuSound.mp3")
 
-        print("Start Speaking!")
+        print("Start Speaking!") #apagar
         audio = mic.listen(source)
-        print("Working on it")
+        print("Working on it") #apagar
 
     try:
         Command = mic.recognize_google(audio, language=lang)
         UserCommand = unidecode(Command)
-        print("You said  {}".format(UserCommand))
+        print("You said  {}".format(UserCommand)) #apagar
 
         p = UserCommand.lower()
         #turn on the green/blue light
         return p
 
     except sr.UnknownValueError:
-        print("I don't understand")
+        print("I don't understand") #apagar
         # turn on the red light
         return " "
 
     except sr.RequestError as e:
-        print("Impossible to make the call")
+        print("Impossible to make the call") #apagar
         return " "
 
 #Camera Move Function################################################
@@ -145,6 +145,7 @@ while True:
     elif("fly to" in p) or ("flying to" in p) or ("go to" in p) or ("flight to" in p):
         controllerB = True
         print("Ready to fly!")
+	#Inserir som de inicio de voo FlyTo
 
         while p != "stop navigation":
             p = VoiceCommands()
@@ -162,6 +163,7 @@ while True:
                 f.write(place)
                 f.close()
 
+		#Inserir som de voo para flyto
                 goingTo = gTTS("going to"+p, lang=lang)
                 goingTo.save('Visit-the-World/Sounds/goingTo.mp3')
                 playsound('Visit-the-World/Sounds/goingTo.mp3')
@@ -177,7 +179,7 @@ while True:
             p = VoiceCommands()
             if p == " ":
                 controllerB = False
-            elif (p == "return to earth") or (p == "earth"):
+            elif ("return to earth" in p) or ("earth" in p):
                 planet = 'planet= earth'
                 f = open("/tmp/query.txt", "w")
                 f.write(planet)
