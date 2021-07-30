@@ -47,14 +47,38 @@ Run the install script using the commands:
 
 Accept all requests with `y` + `Enter`
 
-After installing all the dependencies it is necessary to start Googl Earth manually, close the first "startup" screen, hide the sidebar and top bar.
+- After finishing all installation, press `Enter` to process.
+  Google Earth will open and then your computer will restart.
 
-After installing all dependencies it is necessary to start Googl Earth manually, close the first "startup" screen, hide the sidebar and top bar.
-Then you need to initialize the voice recognition script using the command:
+- After the computer restarts log out and log in again using I3 WM as screen manager
 
-`python main.py`
+- On the first screen that appears, just press `Enter` twice.
+- Press `Wind + Enter` key to open a terminal.
+- Enter the directory folder `cd Visit-the-World` e execute o comando:
+- `./i3Config`
 
-Available voice commands are listed [here](https://docs.google.com/document/d/1CS8cuFqwNtNBiMWLslTGgVLVpoWNE1gggdW_G2cdj-k/edit?usp=sharing)
+The computer will restart once again opening Google Earth in Fullscreen mode and already with the voice commands enabled so you can navigate the world!
+
+## Main available voice commands
+
+- Zoom More
+- Zoom out
+- Move camera right
+- Move camera left
+- Look up
+- Look down
+- Rotate camera right
+- Rotate camera left
+- Orbit
+- Stop or Break (To stop camera movements)
+
+- Hello world (To start voice commands)
+- Fly to or Go to (To start navigation) After entering the menu, just say the name of the city or tourist place you want to fly to.
+- Stop navigation (To exit flight mode)
+- Change planet (To change the planet) Whenever you want to change the planet, just call this command and then say which planet you want to go to Earth, Mars or Moon.
+- Return to earth - You need to access the Change Planet menu to be able to return to Earth with this command.
+- Goodbye or Turn of - This command will close the application and shut down the computer.
+- Liquid Galaxy - This command just closes the application and waits for the command to start browsing a Liquid Galaxy installation (The user will need to enter the necessary information from the master PC)
 
 ## Complete documentation
 ...
