@@ -54,7 +54,7 @@ Accept all requests with `y` + `Enter`
 
 - On the first screen that appears, just press `Enter` twice.
 - Press `Wind + Enter` key to open a terminal.
-- Enter the directory folder `cd Visit-the-World` e execute o comando:
+- Enter the directory folder `cd Visit-the-World`and run the command:
 - `./i3Config`
 
 The computer will restart once again opening Google Earth in Fullscreen mode and already with the voice commands enabled so you can navigate the world!
