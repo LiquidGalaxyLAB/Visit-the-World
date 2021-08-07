@@ -50,6 +50,8 @@ echo -e "\nChecking for system upgrades...\n"
 sudo apt upgrade -f
 
 echo "Installing Dependencies..."
+sudo apt install lsb
+sudo apt install lsb-core
 sudo apt install net-tools
 sudo apt install portaudio19-dev python-all-dev
 sudo apt install python-pip
@@ -72,15 +74,23 @@ gsettings set org.gnome.desktop.session idle-delay 0 #Set not to turn off screen
 echo "Installing Google Earth..."
 sudo gdebi google-earth-pro-stable_current_amd64.deb
 
-
-echo "Editing Drivers.Ini..."
-sudo rm -f /opt/google/earth/pro/drivers.ini
-sudo cp ConfigFiles/drivers.ini /opt/google/earth/pro
+ecgo"Google earth file removed"
 sudo rm -f google-earth-pro-stable_current_amd64.deb #Removing google-earth.deb
 
+echo "Editing config files..."
+#Drivers.ini Changes
+sudo rm -f /opt/google/earth/pro/drivers.ini
+sudo cp ConfigFiles/drivers.ini /opt/google/earth/pro
+#Google Earth config change
+sudo rm -f ~/.config/Google/GoogleEarthPro.conf
+sudo rmdir ~/.config/Google
+sudo mkdir ~/.config/Google
+sudo cp ~/Visit-the-World/ConfigFiles/GoogleEarthPro.conf ~/.config/Google
+#I3 Window manager config file
+sudo mkdir ~/.config/i3
+sudo cp ~/Visit-the-World/ConfigFiles/config ~/.config/i3
 
 sudo chmod 755 GoogleEarthStart.sh
-sudo chmod 755 i3config.sh
 
 # Only for installations on the LattePanda board
 #Enable the Serial communication 
@@ -90,13 +100,11 @@ fi
 
 
 echo -e "\nVisit the World installation completed! :-) \n"
-echo "Press ENTER key to reboot now"
+echo "Press ENTER key to make logout now"
 read
-google-earth-pro &
-sleep 15
 
-killall googleearth-bin 
-reboot
+#logout
+sudo pkill -9 -u $USER
 
 exit 0
 
