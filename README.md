@@ -49,17 +49,11 @@ Run the install script using the commands:
 
 Accept all requests with `y` + `Enter`
 
-- After finishing all installation, press `Enter` to process.
-  Google Earth will open and then your computer will restart.
+-After installation press `Enter` to logout.
+-Make login again. 
+ Remember to choose i3 as window manager before starting a new session.
 
-- After the computer restarts log out and log in again using I3 WM as screen manager
-
-- On the first screen that appears, just press `Enter` twice.
-- Press `Wind + Enter` key to open a terminal.
-- Enter the directory folder `cd Visit-the-World`and run the command:
-- `./i3Config`
-
-The computer will restart once again opening Google Earth in Fullscreen mode and already with the voice commands enabled so you can navigate the world!
+Ready! Google Earth should automatically start in fullscreen and you will have a welcome greeting and sound commands to navigate the world
 
 ## Main available voice commands
 
