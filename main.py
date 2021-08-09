@@ -20,12 +20,12 @@ ModeControl = ""
 sound = "Visit-the-World/Sounds/TurnOff.mp3"
 
 #Installation Mode Verification########################################
-file = open("Visit-the-World/ModeConfig.txt","r")
-ModeControl = file.read()
-file.close()
+#file = open("Visit-the-World/ModeConfig.txt","r")
+#ModeControl = file.read()
+#file.close()
 
-if "1" in ModeControl:
-   print("Controll 1")
+#if "1" in ModeControl:
+#  print("Controll 1")
 
 #Welcome, first run ##################################################
 if controller == True:
