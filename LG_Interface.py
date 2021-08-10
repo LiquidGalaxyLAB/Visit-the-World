@@ -117,7 +117,7 @@ class Application:
         file.close()
         if LG_IP != "invalid ip" and LG_PASSWORD != "invalid passwrod":
             self.message["text"] = "connecting"
-            os.system("python voz.py")
+            os.system("python ~/Visit-the-World/lg-voice.py")
         else:
             self.message["text"] = "Enter data before connecting"
 
