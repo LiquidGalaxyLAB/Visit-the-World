@@ -228,10 +228,11 @@ while True:
         playsound("Visit-the-World/Sounds/TurnOff.mp3")
 	playsound(sound)
         os.system("shutdown -h now")
-    elif(p == "liquid galaxy") or (p == "galaxy"):
+    elif(p == "liquid galaxy") or (p == "galaxy") or (p == "galaxy controll")::
  	sound = "Visit-the-World/Sounds/TurnOff.mp3"
 	playsound(sound)
 	os.system("killall googleearth-bin")
+	os.system("python3 LG_Interface.py")
 	exit()
     else:
         print(p)
