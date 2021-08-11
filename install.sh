@@ -50,6 +50,7 @@ echo -e "\nChecking for system upgrades...\n"
 sudo apt upgrade -f
 
 echo "Installing Dependencies..."
+sudo apt-get install python3-tk
 sudo apt install lsb
 sudo apt install lsb-core
 sudo apt install net-tools
