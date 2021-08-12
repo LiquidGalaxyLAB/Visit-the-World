@@ -75,7 +75,7 @@ gsettings set org.gnome.desktop.session idle-delay 0 #Set not to turn off screen
 echo "Installing Google Earth..."
 sudo gdebi google-earth-pro-stable_current_amd64.deb
 
-ecgo"Google earth file removed"
+echo"Google earth file removed"
 sudo rm -f google-earth-pro-stable_current_amd64.deb #Removing google-earth.deb
 
 echo "Editing config files..."
@@ -108,6 +108,4 @@ read
 sudo pkill -9 -u $USER
 
 exit 0
-
-#gnome-session-quit --force
 
