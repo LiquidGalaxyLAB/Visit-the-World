@@ -77,6 +77,74 @@ Ready! Google Earth should automatically start in fullscreen and you will have a
 - Goodbye or Turn of - This command will close the application and shut down the computer.
 - Liquid Galaxy - This command just closes the application and waits for the command to start browsing a Liquid Galaxy installation (The user will need to enter the necessary information from the master PC)
 
+## Command tree
+
+```bash
+────VOICE COMMANDS
+    │
+    ├───"Hello Word" - A sound will be emitted
+    │
+    ├───"Fly To" or "Go To" - A sound will be emitted
+    │     │ 
+    │     └───"Stop Navigation"
+    │     │
+    │     └───"Place name" (User need to say)
+    │ 
+    │           
+    ├───"Change Planet" - A sound will be emitted
+    │     │ 
+    │     └───"Mars"
+    │     │
+    │     └───"Moon"
+    │     │
+    │     └───"Return to Earth" (To return to earth)
+    │                   
+    ├───"Zoom More" - A sound will be emitted
+    │     │ 
+    │     └───"Stop" or "Break"
+    │ 
+    ├───"Zoom out" - A sound will be emitted
+    │     │ 
+    │     └───"Stop" or "Break"
+    │ 
+    ├───"Move camera right" - A sound will be emitted
+    │     │ 
+    │     └───"Stop" or "Break"
+    │ 
+    ├───"Move camera left" - A sound will be emitted
+    │     │ 
+    │     └───"Stop" or "Break"
+    │ 
+    ├───"Look up" - A sound will be emitted
+    │     │ 
+    │     └───"Stop" or "Break"
+    │ 
+    ├───"Look down" - A sound will be emitted
+    │     │ 
+    │     └───"Stop" or "Break" 
+    │ 
+    ├───"Rotate camera right" - A sound will be emitted
+    │     │ 
+    │     └───"Stop" or "Break"
+    │ 
+    ├───"Rotate camera left" - A sound will be emitted
+    │     │ 
+    │     └───"Stop" or "Break"
+    │ 
+    ├───"Orbit" - A sound will be emitted
+    │     │ 
+    │     └───"Stop" or "Break"     
+    │ 
+    │ 
+    ├───"Liquid Galaxy" or "Galaxy Control"  - A sound will be emitted
+    │		(Google Earth will close and launch the 
+    │		Liquid Galaxy connection screen)              
+    │           
+    │           
+    └───"Goodbye" or "Turn of"  - A sound will be emitted
+		(Close the application and shut down the computer) 
+```
+
 ## Complete documentation
 ...
 
