@@ -75,8 +75,15 @@ gsettings set org.gnome.desktop.session idle-delay 0 #Set not to turn off screen
 echo "Installing Google Earth..."
 sudo gdebi google-earth-pro-stable_current_amd64.deb
 
-echo"Google earth file removed"
+echo "Google earth file removed"
 sudo rm -f google-earth-pro-stable_current_amd64.deb #Removing google-earth.deb
+
+echo "Changing path of temporary files"
+cache="CachePath=/home/$USER/.googleearth/Cache"
+kmlpath="KMLPath=/home/$USER/.googleearth"
+
+sed -i "s|CachePath=|$cache|" /ConfigFiles/GoogleEarthPro.conf
+sed -i "s|KMLPath=|$kmlpath|" /ConfigFiles/GoogleEarthPro.conf
 
 echo "Editing config files..."
 #Drivers.ini Changes
