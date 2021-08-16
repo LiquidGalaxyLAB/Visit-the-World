@@ -50,24 +50,10 @@ echo -e "\nChecking for system upgrades...\n"
 sudo apt upgrade -f
 
 echo "Installing Dependencies..."
-sudo apt-get install python3-tk
-sudo apt install lsb
-sudo apt install lsb-core
-sudo apt install net-tools
-sudo apt install portaudio19-dev python-all-dev
-sudo apt install python-pip
-sudo apt install gdebi
-sudo apt install i3 i3blocks
+sudo apt install -y python3-tk install lsb lsb-core net-tools portaudio19-dev python-all-dev python-pip gdebi i3 i3blocks
 
 echo "Installing Libraries"
-pip install gTTS
-pip install SpeechRecognition
-pip install playsound
-pip install pynput
-pip install PyAudio
-pip install unidecode
-pip install geopy
-pip install paramiko
+pip install gTTS SpeechRecognition playsound pynput PyAudio unidecode geopy paramiko
 
 echo "Screen Dimming Setting"
 gsettings set org.gnome.desktop.session idle-delay 0 #Set not to turn off screen 
