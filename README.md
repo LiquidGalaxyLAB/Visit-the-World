@@ -27,6 +27,8 @@ The project is designed for installation on the LattePanda board, but it can als
 
 ## How to install and use?
 
+### In order to run correctly the project needs to be installed in the home directory
+
 
 * [You can find installation steps with screenshots here](https://docs.google.com/document/d/1kjjwRms4x13-JX-QPY572D1IhWqd-q4JSdDNTWN9rs4/edit?usp=sharing)
 
