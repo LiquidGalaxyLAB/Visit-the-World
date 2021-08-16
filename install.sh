@@ -39,15 +39,15 @@ fi
 
 echo -e "\nAudio settings..."
 
-amixer -D pulse sset Master on   #Output Sound Turn on  
-amixer -D pulse sset Master 95%  #Output Sound level 
-amixer set Capture cap		 #Set Microphone capture On
-amixer set Capture 90%           #Microphone level 
+amixer -D pulse sset Master on >/dev/null 2>&1  #Output Sound Turn on  
+amixer -D pulse sset Master 95% >/dev/null 2>&1 #Output Sound level 
+amixer set Capture cap >/dev/null 2>&1  	#Set Microp hone capture On
+amixer set Capture 90% >/dev/null 2>&1          #Microphone level 
 
 echo -e "\nChecking for system updates...\n"
-sudo apt update
+sudo apt -y update
 echo -e "\nChecking for system upgrades...\n"
-sudo apt upgrade -f
+sudo apt -y upgrade -f
 
 echo "Installing Dependencies..."
 sudo apt install -y python3-tk lsb lsb-core net-tools portaudio19-dev python-all-dev python-pip gdebi i3 i3blocks
@@ -77,7 +77,7 @@ sudo rm -f /opt/google/earth/pro/drivers.ini
 sudo cp ConfigFiles/drivers.ini /opt/google/earth/pro
 #Google Earth config change
 sudo rm -f ~/.config/Google/GoogleEarthPro.conf
-sudo rmdir ~/.config/Google
+sudo rmdir ~/.config/Google >/dev/null 2>&1
 sudo mkdir ~/.config/Google
 sudo cp ~/Visit-the-World/ConfigFiles/GoogleEarthPro.conf ~/.config/Google
 #I3 Window manager config file
