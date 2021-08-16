@@ -41,8 +41,8 @@ echo -e "\nAudio settings..."
 
 amixer -D pulse sset Master on >/dev/null 2>&1  #Output Sound Turn on  
 amixer -D pulse sset Master 95% >/dev/null 2>&1 #Output Sound level 
-amixer set Capture cap >/dev/null 2>&1  	#Set Microp hone capture On
-amixer set Capture 90% >/dev/null 2>&1          #Microphone level 
+amixer -D pulse sset Capture cap >/dev/null 2>&1  	#Set Microp hone capture On
+amixer -D pulse sset Capture 85% >/dev/null 2>&1          #Microphone level 
 
 echo -e "\nChecking for system updates...\n"
 sudo apt -y update
