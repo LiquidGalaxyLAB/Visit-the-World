@@ -50,7 +50,7 @@ echo -e "\nChecking for system upgrades...\n"
 sudo apt upgrade -f
 
 echo "Installing Dependencies..."
-sudo apt install -y python3-tk install lsb lsb-core net-tools portaudio19-dev python-all-dev python-pip gdebi i3 i3blocks
+sudo apt install -y python3-tk lsb lsb-core net-tools portaudio19-dev python-all-dev python-pip gdebi i3 i3blocks
 
 echo "Installing Libraries"
 pip install gTTS SpeechRecognition playsound pynput PyAudio unidecode geopy paramiko
