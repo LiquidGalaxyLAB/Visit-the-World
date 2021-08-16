@@ -60,7 +60,7 @@ Ready! Google Earth should automatically start in fullscreen and you will have a
 
 ## Main available voice commands
 
-- Zoom More
+- Zoom More or Zoom In
 - Zoom out
 - Move camera right
 - Move camera left
