@@ -97,7 +97,7 @@ class Application:
 
         self.masterPasswordLabel = Label(self.seventhContainer, text="Master Password: ", font=self.standardFont)
         self.masterPasswordLabel.pack(side=LEFT)
-        self.Passwordlabel = Label(self.seventhContainer, text=LG_PASSWORD, font=self.standardFont)
+        self.Passwordlabel = Label(self.seventhContainer, text= '*' * len(LG_PASSWORD), font=self.standardFont)
         self.Passwordlabel.pack(side=LEFT)
 
         self.AlertLabel = Label(self.eighthContainer, text="ALERT ! ", font=("Arial", "12", "bold"),fg="red")
@@ -136,7 +136,7 @@ class Application:
             LG_PASSWORD = LG_File.split('\n', 1)[1]
             file.close()
             self.iplabel["text"] = LG_IP
-            self.Passwordlabel["text"] = LG_PASSWORD
+            self.Passwordlabel["text"] = '*' * len(LG_PASSWORD)
 
 root = Tk()
 root.wm_title("Liquid Galaxy")
