@@ -101,7 +101,7 @@ Ready! Google Earth should automatically start in fullscreen and you will have a
     │     │
     │     └───"Return to Earth" (To return to earth)
     │                   
-    ├───"Zoom More" - A sound will be emitted
+    ├───"Zoom In" - A sound will be emitted
     │     │ 
     │     └───"Stop" or "Break"
     │ 
