@@ -19,28 +19,13 @@ controllerB = True
 ModeControl = ""
 sound = "Visit-the-World/Sounds/TurnOff.mp3"
 
-#LG communication Data ################################################
+##SSH CONNECTION#######################################################
 file = open("Visit-the-World/ConfigFiles/LGConfig.txt","r")
 LG_File = file.read()
 LG_IP = LG_File.split('\n',1)[0]
 LG_PASSWORD = LG_File.split('\n',1)[1]
 file.close()
 
-while LG_IP == "a":
-    lg_ip = raw_input("Insert the LG Master IP: ")
-    lg_password = raw_input("Insert the LG Master Password: ")
-    f = open("Visit-the-World/ConfigFiles/LGConfig.txt", "w")
-    f.write(lg_ip + '\n')
-    f.write(lg_password)
-    f.close()
-
-    file = open("Visit-the-World/ConfigFiles/LGConfig.txt","r")
-    LG_File = file.read()
-    LG_IP = LG_File.split('\n',1)[0]
-    LG_PASSWORD = LG_File.split('\n',1)[1]
-    file.close()
-
-##SSH CONNECTION#######################################################
 class SSH:
     def __init__(self):
         self.ssh = SSHClient()
@@ -116,10 +101,10 @@ def Position_Controller(dataRec):
     elif ("zoom in" in data) or ("zoom more" in data) or ("open zoom" in data) or ("zoom open" in data) or ("closer" in data) or ("advance" in data): #Zoom +
 	playsound(sound)        
 	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Alt+equal")
-    elif ("move camera right" in data) or ("right" in data) or ("move right" in data) or ("look to the right" in data) or ("look to right" in data) or ("looking to right" in data) or ("rotate right" in data) or ("go right" in data): # RIGHT
+    elif ("move camera right" in data) or ("move right" in data) or ("camera right" in data):# RIGHT
 	playsound(sound)	
 	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Alt+Right")  
-    elif ("move camera left" in data) or ("left" in data) or ("move left" in data) or ("look to the left" in data) or ("look to left" in data) or ("looking to left" in data) or ("rotate left" in data) or ("go left" in data): # LEFT
+    elif ("move camera left" in data) or ("move left" in data) or ("camera left" in data): # LEFT
 	playsound(sound)	
 	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Alt+Left") 
     elif ("move camera up" in data) or ("look up" in data) or ("looking up" in data) or ("walk up" in data) or ("go up" in data) or ("spin up" in data) or ("up" in data): # UP
@@ -128,12 +113,18 @@ def Position_Controller(dataRec):
     elif ("move camera down" in data) or ("look down" in data) or ("looking down" in data) or ("walk down" in data) or ("go down" in data) or ("spin down" in data) or ("down" in data): # DOWN
 	playsound(sound)	
 	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Alt+Down")  
-    elif ("camera right" in data) or ("rotate camera right" in data):# Look RIGHT
+    elif ("rotate right" in data) or ("rotate camera right" in data) or ("rotate to right" in data) :# Look RIGHT
 	playsound(sound)        
 	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Ctrl+Right")
-    elif ("camera left" in data) or ("rotate camera left" in data): # Look LEFT
+    elif ("rotate left" in data) or ("rotate camera left" in data) or ("rotate to left" in data) : # Look LEFT
 	playsound(sound)        
 	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Ctrl+Left")
+    elif ("below" in data) or ("drop" in data): # Tilt Down
+	playsound(sound)        
+	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Shift+Alt+Down")
+    elif ("above" in data) : # Tilt Up
+	playsound(sound)        
+	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Shift+Alt+Up")
     elif ("orbit" in data) or ("look around" in data) or ("looking around" in data) or ("make an orbit" in data) or ("make circle" in data):	# Orbit
 	playsound(sound)        
 	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Shift+Alt+Right")
@@ -156,11 +147,15 @@ def Position_Controller(dataRec):
     	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keyup Ctrl+Left")
     	#Orbit 
     	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keyup Shift+Alt+Right")
+    	#Tilt Up
+    	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keyup Shift+Alt+Up")
+    	#Tilt Down
+    	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keyup Shift+Alt+Down")
 
 
 #Control loop#######################################################
 while True:
-    ssh = SSH()
+    #ssh = SSH()
     p = VoiceCommands()
 
     if(p == " "):
@@ -197,10 +192,8 @@ while True:
 
 		    send = 'echo ' + "'" + place +"'" + '>/tmp/query.txt'
 
+		    ssh = SSH()
 		    ssh.exec_cmd(send)
-                    #f = open("/tmp/query.txt", "w")
-                    #f.write(place)
-                    #f.close()
 		
 		    playsound(sound)
                     goingTo = gTTS("going to"+p, lang=lang)
@@ -219,6 +212,7 @@ while True:
     elif ("change planet" in p) or ("planet change" in p) or ("planets" in p):
         print("Ready to change the planet!")
 	sound = "Visit-the-World/Sounds/MenuSound.mp3"
+	playsound(sound)
 
         while p != "return to earth":
             p = VoiceCommands()
@@ -228,12 +222,10 @@ while True:
                 planet = 'planet= earth'
 
                 sendPlanet = 'echo ' + "'" + planet +"'" + '>/tmp/query.txt'
+
+		ssh = SSH()
 		ssh.exec_cmd(sendPlanet)
 
-               # f = open("/tmp/query.txt", "w")
-               # f.write(planet)
-               # f.close()
- 
 		playsound(sound)
                 changeTo = gTTS("change planet to earth", lang=lang)
                 changeTo.save('Visit-the-World/Sounds/changeTo.mp3')
@@ -245,10 +237,9 @@ while True:
                 planet = 'planet=' + p
 
                 sendPlanet = 'echo ' + "'" + planet +"'" + '>/tmp/query.txt'
+
+		ssh = SSH()
                 ssh.exec_cmd(sendPlanet)
-                #f = open("/tmp/query.txt", "w")
-                #f.write(planet)
-                #f.close()
 
 		playsound(sound)
                 changeTo = gTTS("change planet to" + p, lang=lang)
