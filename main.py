@@ -81,46 +81,56 @@ def Position_Controller(dataRec):
     sound = "Visit-the-World/Sounds/MoveCamera.mp3"
     data = dataRec
 
-    if ("zoom out" in data) or ("remove zoom" in data) or ("close zoom" in data) or ("back off" in data) : #Zoom -
+    if ("zoom out" in data) or ("remove zoom" in data) or ("back off" in data) : #Zoom -
         playsound(sound)
-	keyb.press(Key.alt)
+        keyb.press(Key.alt)
         keyb.press(Key.page_down)
-    elif ("zoom in" in data) or ("zoom more" in data) or ("open zoom" in data) or ("zoom open" in data) or ("closer" in data) or ("advance" in data): #Zoom +
-	playsound(sound)        
-	keyb.press(Key.alt)
+    elif ("zoom in" in data) or ("zoom more" in data) or ("zoom open" in data):  # Zoom +
+        playsound(sound)
+        keyb.press(Key.alt)
         keyb.press(Key.page_up)
-    elif ("move camera right" in data) or ("right" in data) or ("move right" in data) or ("look to the right" in data) or ("look to right" in data) or ("looking to right" in data) or ("rotate right" in data) or ("go right" in data): # RIGHT
-	playsound(sound)	
-	keyb.press(Key.alt)
-        keyb.press(Key.right)  
-    elif ("move camera left" in data) or ("left" in data) or ("move left" in data) or ("look to the left" in data) or ("look to left" in data) or ("looking to left" in data) or ("rotate left" in data) or ("go left" in data): # LEFT
-	playsound(sound)	
-	keyb.press(Key.alt)
-        keyb.press(Key.left)  
-    elif ("move camera up" in data) or ("look up" in data) or ("looking up" in data) or ("walk up" in data) or ("go up" in data) or ("spin up" in data) or ("up" in data): # UP
-	playsound(sound)	
-	keyb.press(Key.alt)
-        keyb.press(Key.up)  
-    elif ("move camera down" in data) or ("look down" in data) or ("looking down" in data) or ("walk down" in data) or ("go down" in data) or ("spin down" in data) or ("down" in data): # DOWN
-	playsound(sound)	
-	keyb.press(Key.alt)
-        keyb.press(Key.down)  
-    elif ("camera right" in data) or ("rotate camera right" in data):# Look RIGHT
-	playsound(sound)        
-	keyb.press(Key.ctrl)
+    elif ("move camera right" in data) or ("move right" in data) or ("camera right" in data):# RIGHT
+        playsound(sound)
+        keyb.press(Key.alt)
         keyb.press(Key.right)
-    elif ("camera left" in data) or ("rotate camera left" in data): # Look LEFT
-	playsound(sound)        
-	keyb.press(Key.ctrl)
+    elif ("move camera left" in data) or ("move left" in data) or ("camera left" in data): # LEFT
+        playsound(sound)
+        keyb.press(Key.alt)
         keyb.press(Key.left)
+    elif ("move camera up" in data) or ("look up" in data) or ("looking up" in data) or ("go up" in data) or ("up" in data): # UP
+        playsound(sound)
+        keyb.press(Key.alt)
+        keyb.press(Key.up)
+    elif ("move camera down" in data) or ("look down" in data) or ("looking down" in data) or ("go down" in data) or ("down" in data): # DOWN
+        playsound(sound)
+        keyb.press(Key.alt)
+        keyb.press(Key.down)
+    elif ("rotate right" in data) or ("rotate camera right" in data) or ("rotate to right" in data) :# Look RIGHT
+        playsound(sound)
+        keyb.press(Key.ctrl)
+        keyb.press(Key.right)
+    elif ("rotate left" in data) or ("rotate camera left" in data) or ("rotate to left" in data) : # Look LEFT
+        playsound(sound)
+        keyb.press(Key.ctrl)
+        keyb.press(Key.left)
+    elif ("below" in data) or ("drop" in data): # Tilt Down
+        playsound(sound)
+        keyb.press(Key.shift)
+        keyb.press(Key.alt)
+        keyb.press(Key.down)
+    elif ("above" in data) : # Tilt Up
+        playsound(sound)
+        keyb.press(Key.shift)
+        keyb.press(Key.alt)
+        keyb.press(Key.up)
     elif ("orbit" in data) or ("look around" in data) or ("looking around" in data) or ("make an orbit" in data) or ("make circle" in data):	# Orbit
-	playsound(sound)        
-	keyb.press(Key.shift)
-	keyb.press(Key.alt)
+        playsound(sound)
+        keyb.press(Key.shift)
+        keyb.press(Key.alt)
         keyb.press(Key.right)
     elif ("stop" in data) or ("break" in data) or ("stop movement" in data):
-	playsound(sound)        
-	keyb.release(Key.alt)
+        playsound(sound)
+        keyb.release(Key.alt)
         keyb.release(Key.shift)
         keyb.release(Key.ctrl)
         keyb.release(Key.down)
@@ -142,15 +152,15 @@ while True:
         print("Hello welcome!")
         playsound("Visit-the-World/Sounds/HelloWord.mp3")
         controllerB = True
-	sound = "Visit-the-World/Sounds/HelloWord.mp3"
+        sound = "Visit-the-World/Sounds/HelloWord.mp3"
         #turn on the green/blue light
 
     elif("fly to" in p) or ("flying to" in p) or ("go to" in p) or ("flight to" in p):
         controllerB = True
         print("Ready to fly!")#delete
-	#FlyTo sound
-	sound = "Visit-the-World/Sounds/FlyTo.mp3"
-	playsound(sound)
+        #FlyTo sound
+        sound = "Visit-the-World/Sounds/FlyTo.mp3"
+        playsound(sound)
 
         while p != "stop navigation":
             p = VoiceCommands()
@@ -158,27 +168,25 @@ while True:
             if p == " ":
                 controllerB = False
             elif ("stop navigation" in p) or ("hello world" in p) or ("hello words" in p):
-		sound = "Visit-the-World/Sounds/HelloWord.mp3"
-		playsound(sound)
+                sound = "Visit-the-World/Sounds/HelloWord.mp3"
+                playsound(sound)
                 break
             else:
                 controllerB = True
-		try:
+                try:
                     location = geolocator.geocode(p)
                     coord = str(location.latitude) + "," + str(location.longitude)
                     place = 'search=' + coord
                     f = open("/tmp/query.txt", "w")
                     f.write(place)
                     f.close()
-		
-		    playsound(sound)
+                    playsound(sound)
                     goingTo = gTTS("going to"+p, lang=lang)
                     goingTo.save('Visit-the-World/Sounds/goingTo.mp3')
                     playsound('Visit-the-World/Sounds/goingTo.mp3')
                     os.remove('Visit-the-World/Sounds/goingTo.mp3')
-		except:
-		
-		    notFound = gTTS("Location not found, try another place")
+                except:
+                    notFound = gTTS("Location not found, try another place")
                     notFound.save('Visit-the-World/Sounds/notFound.mp3')
                     playsound('Visit-the-World/Sounds/notFound.mp3')
                     os.remove('Visit-the-World/Sounds/notFound.mp3')
@@ -187,8 +195,8 @@ while True:
 
     elif ("change planet" in p) or ("planet change" in p) or ("planets" in p):
         print("Ready to change the planet!")
-	sound = "Visit-the-World/Sounds/MenuSound.mp3"
-	playsound(sound)
+        sound = "Visit-the-World/Sounds/MenuSound.mp3"
+        playsound(sound)
 
         while p != "return to earth":
             p = VoiceCommands()
@@ -200,7 +208,7 @@ while True:
                 f.write(planet)
                 f.close()
  
-		playsound(sound)
+                playsound(sound)
                 changeTo = gTTS("change planet to earth", lang=lang)
                 changeTo.save('Visit-the-World/Sounds/changeTo.mp3')
                 playsound('Visit-the-World/Sounds/changeTo.mp3')
@@ -213,28 +221,28 @@ while True:
                 f.write(planet)
                 f.close()
 
-		playsound(sound)
+                playsound(sound)
                 changeTo = gTTS("change planet to" + p, lang=lang)
                 changeTo.save('Visit-the-World/Sounds/changeTo.mp3')
                 playsound('Visit-the-World/Sounds/changeTo.mp3')
                 os.remove('Visit-the-World/Sounds/changeTo.mp3')
 
-		sound = "Visit-the-World/Sounds/HelloWord.mp3"
- 		break
+                sound = "Visit-the-World/Sounds/HelloWord.mp3"
+                break
 
         controllerB = True
 
     elif (p == "goodbye") or (p == "bye-bye") or (p == "turn of"):
         # turn of the sistem
         playsound("Visit-the-World/Sounds/TurnOff.mp3")
-	playsound(sound)
+        playsound(sound)
         os.system("shutdown -h now")
     elif(p == "liquid galaxy") or (p == "galaxy") or (p == "galaxy control"):
- 	sound = "Visit-the-World/Sounds/TurnOff.mp3"
-	playsound(sound)
-	os.system("killall googleearth-bin")
-	os.system("python3 ~/Visit-the-World/LG_Interface.py")
-	exit()
+        sound = "Visit-the-World/Sounds/TurnOff.mp3"
+        playsound(sound)
+        os.system("killall googleearth-bin")
+        os.system("python3 ~/Visit-the-World/LG_Interface.py")
+        exit()
     else:
         print(p)
         Position_Controller(p)
