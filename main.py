@@ -188,6 +188,7 @@ while True:
     elif ("change planet" in p) or ("planet change" in p) or ("planets" in p):
         print("Ready to change the planet!")
 	sound = "Visit-the-World/Sounds/MenuSound.mp3"
+	playsound(sound)
 
         while p != "return to earth":
             p = VoiceCommands()
