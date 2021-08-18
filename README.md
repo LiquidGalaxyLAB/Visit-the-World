@@ -66,8 +66,10 @@ Ready! Google Earth should automatically start in fullscreen and you will have a
 - Move camera left
 - Look up
 - Look down
-- Rotate camera right
-- Rotate camera left
+- Rotate to right
+- Rotate to left
+- Below (Tilt up)
+- Above (Tilt down)
 - Orbit
 - Stop or Break (To stop camera movements)
 
@@ -88,7 +90,7 @@ Ready! Google Earth should automatically start in fullscreen and you will have a
     │
     ├───"Fly To" or "Go To" - A sound will be emitted
     │     │ 
-    │     └───"Stop Navigation"
+    │     └───"Stop Navigation" (To exit the navigation loop)
     │     │
     │     └───"Place name" (User need to say)
     │ 
@@ -125,11 +127,19 @@ Ready! Google Earth should automatically start in fullscreen and you will have a
     │     │ 
     │     └───"Stop" or "Break" 
     │ 
-    ├───"Rotate camera right" - A sound will be emitted
+    ├───"Rotate to right" - A sound will be emitted
     │     │ 
     │     └───"Stop" or "Break"
     │ 
-    ├───"Rotate camera left" - A sound will be emitted
+    ├───"Rotate to left" - A sound will be emitted
+    │     │ 
+    │     └───"Stop" or "Break"
+    │ 
+    ├───"Below" - A sound will be emitted (Camera Tilt)
+    │     │ 
+    │     └───"Stop" or "Break"
+    │ 
+    ├───"Above" - A sound will be emitted (Camera Tilt)
     │     │ 
     │     └───"Stop" or "Break"
     │ 
