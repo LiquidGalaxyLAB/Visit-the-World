@@ -97,10 +97,10 @@ def Position_Controller(dataRec):
 
     if ("zoom out" in data) or ("remove zoom" in data) or ("back off" in data) : #Zoom -
         playsound(sound)
-        ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Alt+minus")
+        ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Alt+Page_Down")
     elif ("zoom in" in data) or ("zoom more" in data) or ("zoom open" in data) : #Zoom +
         playsound(sound)
-        ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Alt+equal")
+        ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Alt+Page_Up")
     elif ("move camera right" in data) or ("move right" in data) or ("camera right" in data):# RIGHT
         playsound(sound)
         ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keydown Alt+Right")
