@@ -138,9 +138,9 @@ def Position_Controller(dataRec):
         #para esquerda
     	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keyup Alt+Left")
         #Zoom in
-    	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keyup Alt+equal")
+    	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keyup Alt+Page_Down")
         #Zoom out
-    	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keyup Alt+minus")
+    	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keyup Alt+Page_Up")
         #Girar no eixo da camera
     	ssh.exec_cmd("export DISPLAY=:0.0 &&xdotool keyup Ctrl+Right")
         #Girar no eixo da camera
